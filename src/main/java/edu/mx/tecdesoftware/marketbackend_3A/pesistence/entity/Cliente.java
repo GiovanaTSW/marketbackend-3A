@@ -2,6 +2,7 @@ package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
+import java.util.List;
 
 @Entity
 @Table (name = "clientes")
@@ -20,4 +21,7 @@ public class Cliente {
     @Column (name = "correo_electronico")
     private String correoElectronico;
 
+    //Un cliente tiene muchas compras
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
 }

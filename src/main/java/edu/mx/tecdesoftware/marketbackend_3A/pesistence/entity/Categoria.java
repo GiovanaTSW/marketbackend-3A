@@ -1,6 +1,7 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 import java.time.LocalDateTime;
 
@@ -16,6 +17,10 @@ public class Categoria {
     private String descripcion;
 
     private Boolean estado;
+
+    //Una categoría va a tener muchos productos
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;

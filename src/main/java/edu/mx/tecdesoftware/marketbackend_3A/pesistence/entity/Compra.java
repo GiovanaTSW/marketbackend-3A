@@ -1,6 +1,7 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
@@ -24,6 +25,17 @@ public class Compra {
 
     private String comentario;
     private String estado;
+
+    //Relación con cliente:
+    //Muchas compras para un cliente
+    @ManyToOne
+    @JoinColumn(name = "id_cliente",
+    insertable = false, updatable = false)
+    private Cliente cliente;
+
+    //Una compra tiene muchos productos
+    @OneToMany(mappedBy = "compra")
+    private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
         return idCompra;
