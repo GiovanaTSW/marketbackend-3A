@@ -56,4 +56,24 @@ public class CompraProducto {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+    //Realizar los getters and setters de todas las clases de la carpeta entity a
+    //excepción de CompraProductoPK
+
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Compra getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Compra producto) {
+        this.producto = producto;
+    }
 }
