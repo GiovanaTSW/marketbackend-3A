@@ -20,7 +20,7 @@ public interface ProductoCrudRepository
     //Obtener una Lista de productos filtrados por id de categoria
     // y ordenados ascendentemente por nombre
 
-    List<Producto>findByCategoriaOrderByNombreAsc(int idCategoria);
+    List<Producto>findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     //Obtener los productos con bajo stock
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado(
