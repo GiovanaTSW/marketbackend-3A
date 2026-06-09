@@ -5,6 +5,7 @@ import edu.mx.tecdesoftware.marketbackend_3A.domain.repository.ProductRepository
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.crud.ProductoCrudRepository;
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity.Producto;
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,7 +16,11 @@ import java.util.Optional;
 //Se comunicará con la BD
 
 public class ProductoRepository implements ProductRepository {
+
+    @Autowired
     private ProductMapper productMapper;
+
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
 
     //SELECT * FROM productos
