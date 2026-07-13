@@ -3,7 +3,6 @@ package edu.mx.tecdesoftware.marketbackend_3A.pesistence.mapper;
 import edu.mx.tecdesoftware.marketbackend_3A.domain.Purchase;
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity.Compra;
 import org.mapstruct.*;
-import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
 public interface PurchaseMapper {

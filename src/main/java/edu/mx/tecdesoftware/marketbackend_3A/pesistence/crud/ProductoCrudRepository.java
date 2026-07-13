@@ -1,7 +1,7 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.crud;
 
-
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity.Producto;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -19,10 +19,10 @@ public interface ProductoCrudRepository
 
     //Obtener una Lista de productos filtrados por id de categoria
     // y ordenados ascendentemente por nombre
-
-    List<Producto>findByIdCategoriaOrderByNombreAsc(int idCategoria);
+    List<Producto> findByIdCategoriaOrderByNombreAsc(int idCategoria);
 
     //Obtener los productos con bajo stock
     Optional<List<Producto>> findByCantidadStockLessThanAndEstado(
             int cantidad, boolean estado);
+
 }
