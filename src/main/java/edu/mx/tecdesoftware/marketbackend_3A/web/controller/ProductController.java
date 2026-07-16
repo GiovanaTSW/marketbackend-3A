@@ -17,10 +17,9 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private ProductRepository productRepository;
+    // Se eliminó ProductRepository, ya que el controlador solo debe interactuar con el Service.
 
-    @GetMapping("")
+    @GetMapping("/all")
     public ResponseEntity<List<Product>> getAll() {
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
@@ -35,7 +34,7 @@ public class ProductController {
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<List<Product>> getByCategory(@PathVariable("categoryId") int categoryId) {
         return productService.getByCategory(categoryId)
-                .map(ResponseEntity::ok)
+                .map(products -> products.isEmpty() ? new ResponseEntity<>(products, HttpStatus.NO_CONTENT) : ResponseEntity.ok(products))
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -45,11 +44,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable("id") int productId) {
-        if (productService.delete(productId)) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> delete(@PathVariable("id") int productId) {
+        return productService.delete(productId) ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 }

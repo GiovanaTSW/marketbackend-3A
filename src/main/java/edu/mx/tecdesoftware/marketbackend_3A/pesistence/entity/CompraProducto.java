@@ -3,27 +3,25 @@ package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "compras_productos")
+@Table(name = "compras_productos")
 public class CompraProducto {
 
     @EmbeddedId
-    //Viene de la clase CompraProductoPK
     private CompraProductoPK id;
 
     private Integer cantidad;
     private Double total;
     private Boolean estado;
 
-    //Saber todos los productos que hay en una compra
+    @MapsId("idCompra")
     @ManyToOne
-    @JoinColumn(name = "id_compra",
-    insertable = false, updatable = false)
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private Compra compra;
 
-    @ManyToOne
     @MapsId("idProducto")
+    @ManyToOne
     @JoinColumn(name = "id_producto")
-    private Producto producto;
+    private Compra producto;
 
     public CompraProductoPK getId() {
         return id;
@@ -57,10 +55,6 @@ public class CompraProducto {
         this.estado = estado;
     }
 
-    //Realizar los getters and setters de todas las clases de la carpeta entity a
-    //excepción de CompraProductoPK
-
-
     public Compra getCompra() {
         return compra;
     }
@@ -69,11 +63,11 @@ public class CompraProducto {
         this.compra = compra;
     }
 
-    public Producto getProducto() {
+    public Compra getProducto() {
         return producto;
     }
 
-    public void setProducto(Producto producto) {
+    public void setProducto(Compra producto) {
         this.producto = producto;
     }
 }

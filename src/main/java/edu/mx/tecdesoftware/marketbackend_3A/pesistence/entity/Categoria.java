@@ -3,7 +3,6 @@ package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 import jakarta.persistence.*;
 import java.util.List;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Table (name = "categorias")
@@ -53,5 +52,5 @@ public class Categoria {
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
-}
 
+}

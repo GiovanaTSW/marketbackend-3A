@@ -5,67 +5,67 @@ import java.util.List;
 
 public class Purchase {
 
-    private int purchaseId;
-    private int clientId;
-    private LocalDateTime fecha;
-    private String medioPago;
-    private String comentario;
-    private String estado;
-    private List<PurchaseItem> Products;
+    private Integer purchaseId;
+    private String clientId;
+    private LocalDateTime date;
+    private String paymentMethod;
+    private String comment;
+    private String state;
+    private List<PurchaseItem> Items;
 
-    public int getPurchaseId() {
+    public Integer getPurchaseId() {
         return purchaseId;
     }
 
-    public void setPurchaseId(int purchaseId) {
+    public void setPurchaseId(Integer purchaseId) {
         this.purchaseId = purchaseId;
     }
 
-    public int getClientId() {
+    public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(int clientId) {
+    public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 
-    public LocalDateTime getFecha() {
-        return fecha;
+    public LocalDateTime getDate() {
+        return date;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
-    public String getMedioPago() {
-        return medioPago;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public void setMedioPago(String medioPago) {
-        this.medioPago = medioPago;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
-    public String getComentario() {
-        return comentario;
+    public String getComment() {
+        return comment;
     }
 
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getState() {
+        return state;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public List<PurchaseItem> getProducts() {
-        return Products;
+    public List<PurchaseItem> getItems() {
+        return Items;
     }
 
-    public void setProducts(List<PurchaseItem> products) {
-        Products = products;
+    public void setItems(List<PurchaseItem> items) {
+        Items = items;
     }
 }

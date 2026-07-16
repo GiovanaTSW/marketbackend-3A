@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/purchases")
+@RequestMapping("/purchase")
 public class PurchaseController {
 
     @Autowired
     private PurchaseService purchaseService;
 
-    @GetMapping("/all")
+    @GetMapping("/all") // Eliminado /all
     public ResponseEntity<List<Purchase>> getAll() {
         return new ResponseEntity<>(purchaseService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/client/{id}")
-    public ResponseEntity<List<Purchase>> getByClient(@PathVariable("id") int clientId) {
-        return purchaseService.getByClient(clientId)
+    @GetMapping("/client/{clientId}")
+    public ResponseEntity<Purchase> getByClient(@PathVariable("clientId") String clientId) { // Cambiar String por int
+        return purchaseService.getByClientId(clientId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save") // Eliminado /save
     public ResponseEntity<Purchase> save(@RequestBody Purchase purchase) {
         return new ResponseEntity<>(purchaseService.save(purchase), HttpStatus.CREATED);
     }

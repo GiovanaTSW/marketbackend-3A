@@ -18,10 +18,10 @@ import java.util.Optional;
 public class ProductoRepository implements ProductRepository {
 
     @Autowired
-    private ProductMapper productMapper;
+    private ProductoCrudRepository productoCrudRepository;
 
     @Autowired
-    private ProductoCrudRepository productoCrudRepository;
+    private ProductMapper productMapper;
 
     //SELECT * FROM productos
     public List<Product> getAll(){
@@ -31,7 +31,7 @@ public class ProductoRepository implements ProductRepository {
     }
 
 
-    public Optional<List<Product>> getByCategory(int categoryId){
+    public Optional<List<Product>> getByCategory(Integer categoryId){
         List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
         return Optional.of(productMapper.toProducts(productos));
     }

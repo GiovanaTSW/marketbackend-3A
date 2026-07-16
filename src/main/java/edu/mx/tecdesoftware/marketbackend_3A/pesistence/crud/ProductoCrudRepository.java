@@ -1,7 +1,6 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.crud;
 
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity.Producto;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

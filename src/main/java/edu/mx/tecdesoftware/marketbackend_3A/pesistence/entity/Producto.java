@@ -8,12 +8,12 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto")
+    @Column(name = "id:Producto")
     private Integer idProducto;
 
     private String nombre;
 
-    @Column(name = "id_categoria")
+    @Column(name = "id:categoria")
     private String idCategoria;
 
     @Column(name = "codigo_barras")
@@ -29,7 +29,7 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "id_categoria",
-    insertable = false, updatable = false)
+        insertable = false, updatable = false)
     private Categoria categoria;
 
     public Integer getIdProducto() {

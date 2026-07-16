@@ -2,19 +2,19 @@ package edu.mx.tecdesoftware.marketbackend_3A.domain;
 
 public class Category {
 
-    private int CategoryId;
+    private Integer categoryId;
     private String category;
     private boolean active;
 
     //Desacoplar el proyecto - empezar a hacer el mapper
     //Getters and Setters
 
-    public int getCategoryId() {
-        return CategoryId;
+    public Integer getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
-        CategoryId = categoryId;
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategory() {

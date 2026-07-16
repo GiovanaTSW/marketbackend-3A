@@ -1,40 +1,40 @@
 package edu.mx.tecdesoftware.marketbackend_3A.domain;
 
 public class PurchaseItem {
-    private int productId;
-    private int cantidad;
-    private double total;
-    private boolean estado;
+    private Integer productId;
+    private Integer amount;
+    private Double total;
+    private Boolean active;
 
-    public int getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
-    public double getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
 
-    public boolean isEstado() {
-        return estado;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

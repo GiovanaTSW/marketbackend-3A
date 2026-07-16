@@ -5,15 +5,14 @@ import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 import java.util.List;
 
 @Entity
-@Table (name = "clientes")
+@Table ( name = "clientes")
+
 public class Cliente {
 
     @Id
-    private Integer id;
+    private String id;
 
     private String nombre;
-
-
     private String apellidos;
     private String celular;
     private String direccion;
@@ -25,11 +24,11 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente")
     private List<Compra> compras;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -2,20 +2,20 @@ package edu.mx.tecdesoftware.marketbackend_3A.domain;
 
 public class Product {
 
-    private int productId;
+    private Integer productoId;
     private String name;
-    private int categoryId;
+    private Integer categoryId;
     private double price;
     private int stock;
     private boolean active;
     private Category category;
 
-    public int getProductId() {
-        return productId;
+    public Integer getProductoId() {
+        return productoId;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProductoId(Integer productoId) {
+        this.productoId = productoId;
     }
 
     public String getName() {
@@ -26,11 +26,11 @@ public class Product {
         this.name = name;
     }
 
-    public int getCategoryId() {
+    public Integer getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Integer categoryId) {
         this.categoryId = categoryId;
     }
 

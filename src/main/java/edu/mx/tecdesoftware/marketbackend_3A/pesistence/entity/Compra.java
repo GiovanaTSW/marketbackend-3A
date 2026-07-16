@@ -1,22 +1,20 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 
 import jakarta.persistence.*;
-import java.util.List;
-import org.springframework.web.bind.annotation.RestController;
-
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+import java.util.List;
 @Entity
 @Table (name = "compras")
 public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_compra")
+    @Column ( name = "id_compra")
     private Integer idCompra;
 
-    @Column (name = "id_cliente")
-    private String idCliente;
+    @Column (name = "iid_cliente")
+    private String Idcliente;
 
     private LocalDateTime fecha;
 
@@ -30,12 +28,13 @@ public class Compra {
     //Muchas compras para un cliente
     @ManyToOne
     @JoinColumn(name = "id_cliente",
-    insertable = false, updatable = false)
+            insertable = false, updatable = false)
     private Cliente cliente;
 
     //Una compra tiene muchos productos
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
-    private List<CompraProducto> productos;
+    private List<Compra_Producto> productos;
+
 
     public Integer getIdCompra() {
         return idCompra;
@@ -45,12 +44,12 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getIdcliente() {
+        return Idcliente;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setIdcliente(String idcliente) {
+        Idcliente = idcliente;
     }
 
     public LocalDateTime getFecha() {
@@ -93,11 +92,11 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public List<CompraProducto> getProductos() {
+    public List<Compra_Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<CompraProducto> productos) {
+    public void setProductos(List<Compra_Producto> productos) {
         this.productos = productos;
     }
 }
