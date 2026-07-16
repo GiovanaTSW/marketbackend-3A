@@ -5,12 +5,10 @@ import edu.mx.tecdesoftware.marketbackend_3A.domain.repository.PurchaseRepositor
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.crud.CompraCrudRepository;
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity.Compra;
 import edu.mx.tecdesoftware.marketbackend_3A.pesistence.mapper.PurchaseMapper;
-import edu.mx.tecdesoftware.marketbackend_3A.pesistence.mapper.PurchaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 public class CompraRepository implements PurchaseRepository {
@@ -21,25 +19,24 @@ public class CompraRepository implements PurchaseRepository {
     @Autowired
     private PurchaseMapper purchaseMapper;
 
+    @Override
     public List<Purchase> getAll() {
         List<Compra> compras = (List<Compra>) compraCrudRepository.findAll();
         return purchaseMapper.toPurchases(compras);
     }
 
+    @Override
     public Optional<Purchase> getByClientId(String clienteId) {
         return compraCrudRepository.findByIdCliente(clienteId)
-                .map(compra ->  purchaseMapper.toPurchase(compra));
+                .map(compra -> purchaseMapper.toPurchase(compra));
     }
 
     @Override
     public Purchase save(Purchase purchase) {
         Compra compra = purchaseMapper.toCompra(purchase);
-        compra.getProductos().forEach(producto -> producto.setCompra(compra)); // <- el paso crítico
+        if (compra.getProductos() != null) {
+            compra.getProductos().forEach(producto -> producto.setCompra(compra)); // <- el paso crítico
+        }
         return purchaseMapper.toPurchase(compraCrudRepository.save(compra));
-    }
-
-    @Override
-    public Optional<Purchase> getByClientId(String clienteId) {
-        return Optional.empty();
     }
 }

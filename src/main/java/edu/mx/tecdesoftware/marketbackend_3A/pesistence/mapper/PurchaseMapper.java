@@ -17,7 +17,7 @@ public interface PurchaseMapper {
             @Mapping(source = "medioPago", target = "paymentMethod"),
             @Mapping(source="comentario", target="comment"),
             @Mapping(source="estado", target="state"),
-            @Mapping(source="producto", target="items")
+            @Mapping(source="productos", target="items")
 
     })
 

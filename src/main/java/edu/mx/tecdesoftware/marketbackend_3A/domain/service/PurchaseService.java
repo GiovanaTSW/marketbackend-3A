@@ -17,7 +17,7 @@ public class PurchaseService {
         return purchaseRepository.getAll();
     }
 
-    public Optional<Purchase> getByClient(String idCliente) {
+    public Optional<Purchase> getByClientId(String idCliente) {
         return purchaseRepository.getByClientId(idCliente);
     }
     public Purchase save(Purchase purchase) { return purchaseRepository.save(purchase); }

@@ -8,28 +8,28 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id:Producto")
+    @Column(name = "id_producto")
     private Integer idProducto;
 
     private String nombre;
 
-    @Column(name = "id:categoria")
-    private String idCategoria;
+    @Column(name = "id_categoria")
+    private Integer idCategoria;
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
 
     @Column(name = "precio_venta")
-    private String precioVenta;
+    private Double precioVenta;
 
     @Column(name = "cantidad_stock")
-    private String cantidadStock;
+    private Integer cantidadStock;
 
     private Boolean estado;
 
     @ManyToOne
     @JoinColumn(name = "id_categoria",
-        insertable = false, updatable = false)
+            insertable = false, updatable = false)
     private Categoria categoria;
 
     public Integer getIdProducto() {
@@ -48,12 +48,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getId_categoria() {
+    public Integer getIdCategoria() {
         return idCategoria;
     }
 
-    public void setId_categoria(String id_categoria) {
-        this.idCategoria = id_categoria;
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getCodigoBarras() {
@@ -64,19 +64,19 @@ public class Producto {
         this.codigoBarras = codigoBarras;
     }
 
-    public String getPrecioVenta() {
+    public Double getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(String precioVenta) {
+    public void setPrecioVenta(Double precioVenta) {
         this.precioVenta = precioVenta;
     }
 
-    public String getCantidadStock() {
+    public Integer getCantidadStock() {
         return cantidadStock;
     }
 
-    public void setCantidadStock(String cantidadStock) {
+    public void setCantidadStock(Integer cantidadStock) {
         this.cantidadStock = cantidadStock;
     }
 

@@ -21,7 +21,7 @@ public class CompraProducto {
     @MapsId("idProducto")
     @ManyToOne
     @JoinColumn(name = "id_producto")
-    private Compra producto;
+    private Producto producto;
 
     public CompraProductoPK getId() {
         return id;
@@ -63,11 +63,11 @@ public class CompraProducto {
         this.compra = compra;
     }
 
-    public Compra getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setProducto(Compra producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
 }

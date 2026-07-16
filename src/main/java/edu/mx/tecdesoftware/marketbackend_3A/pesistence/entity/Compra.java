@@ -1,40 +1,37 @@
 package edu.mx.tecdesoftware.marketbackend_3A.pesistence.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+
 @Entity
-@Table (name = "compras")
+@Table(name = "compras")
 public class Compra {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column ( name = "id_compra")
+    @Column(name = "id_compra")
     private Integer idCompra;
 
-    @Column (name = "iid_cliente")
-    private String Idcliente;
+    @Column(name = "id_cliente")
+    private String idCliente;
 
     private LocalDateTime fecha;
 
-    @Column (name = "medio_pago")
+    @Column(name = "medio_pago")
     private String medioPago;
 
     private String comentario;
     private String estado;
 
-    //Relación con cliente:
-    //Muchas compras para un cliente
+    // Relación con cliente: muchas compras para un cliente
     @ManyToOne
-    @JoinColumn(name = "id_cliente",
-            insertable = false, updatable = false)
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    //Una compra tiene muchos productos
+    // Una compra tiene muchos productos
     @OneToMany(mappedBy = "compra", cascade = CascadeType.ALL)
-    private List<Compra_Producto> productos;
-
+    private List<CompraProducto> productos;
 
     public Integer getIdCompra() {
         return idCompra;
@@ -44,12 +41,12 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getIdcliente() {
-        return Idcliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdcliente(String idcliente) {
-        Idcliente = idcliente;
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
     }
 
     public LocalDateTime getFecha() {
@@ -92,11 +89,11 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public List<Compra_Producto> getProductos() {
+    public List<CompraProducto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Compra_Producto> productos) {
+    public void setProductos(List<CompraProducto> productos) {
         this.productos = productos;
     }
 }
